@@ -1,7 +1,7 @@
 Ansible execution environment image
 ==============================
 
-Provides Docker image with pre-configured interactive Ansible 
+Files to build Docker image with pre-configured interactive Ansible 
 execution environment (based on Debian Linux). 
 
 Build
