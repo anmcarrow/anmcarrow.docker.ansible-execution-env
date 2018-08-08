@@ -1,0 +1,9 @@
+setuptools
+wheel 
+ansible 
+jinja2 
+netaddr 
+pbr 
+ansible-modules-hashivault 
+hvac 
+shade
