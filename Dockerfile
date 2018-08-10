@@ -7,6 +7,7 @@ ENV PRIVRSA=${PRIVRSA} \
     PUBRSA=${PUBRSA}
 
 COPY ./files/py_requirements.txt /py_requirements.txt
+COPY ./files/bash.bashrc /etc/bash.bashrc
 RUN apt-get update \
     ; apt-get install -yy --no-install-recommends \
       python3 python3-dev gcc python3-pip git-core netcat \
