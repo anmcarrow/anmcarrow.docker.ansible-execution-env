@@ -11,7 +11,8 @@ COPY ./files/bash.bashrc /etc/bash.bashrc
 RUN apt-get update \
     ; apt-get install -yy --no-install-recommends \
       python3 python3-dev gcc python3-pip git-core netcat \
-      openssh-client nano \
+      openssh-client nano most \
+    ; iputils-ping httping fping traceroute  
     ; apt-get clean \ 
     ; pip3 install setuptools \
     ; pip3 install -r /py_requirements.txt \
