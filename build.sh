@@ -3,7 +3,7 @@
 source .envs
 
 PROJECT_NAME="anmcarrow"
-IMAGE_NAME="ansible:openstack-features"
+IMAGE_NAME="ansible"
 
 time docker build -t "${PROJECT_NAME}"/"${IMAGE_NAME}" \
 --build-arg PRIVRSA="${PRIVRSA}" \
