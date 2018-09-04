@@ -1,6 +1,6 @@
 setuptools
 wheel 
-ansible 
+ansible==2.5.5
 jinja2 
 netaddr 
 pbr 
