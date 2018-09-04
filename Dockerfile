@@ -1,17 +1,14 @@
 # vim:set ft=dockerfile:
 FROM debian:buster-slim
 
-ARG PRIVRSA
-ARG PUBRSA
-ENV PRIVRSA=${PRIVRSA} \
-    PUBRSA=${PUBRSA}
+ENV    RSA_KEYS_PATH=/root/.ssh
 
 COPY ./files/py_requirements.txt /py_requirements.txt
 COPY ./files/bash.bashrc /etc/bash.bashrc
 RUN apt-get update \
     ; apt-get install -yy --no-install-recommends \
       python3 python3-dev gcc python3-pip git-core netcat \
-      openssh-client nano \
+      openssh-client nano iputils-ping\
     ; apt-get clean \ 
     ; pip3 install setuptools \
     ; pip3 install -r /py_requirements.txt \
@@ -20,8 +17,7 @@ RUN apt-get update \
     ; rm -rf /py_requirements.txt
 
 RUN mkdir /root/.ssh \
-    && echo ${PRIVRSA} > /root/.ssh/id_rsa \
-    && echo ${PUBRSA} > /root/.ssh/id_rsa.pub \ 
+    && ssh-keygen -f /root/.ssh/id_rsa -q -N "" \
     && chmod -R 0700 /root/.ssh 
 COPY ./files/ssh.cfg /root/.ssh/config
 
